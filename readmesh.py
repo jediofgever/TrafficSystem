@@ -1,7 +1,7 @@
 import open3d as o3d
 
-road_mesh = o3d.io.read_triangle_mesh("/home/atas/Markings.fbx")
-sidewalk_mesh = o3d.io.read_triangle_mesh("/home/atas/Sidewalks.fbx")
+road_mesh = o3d.io.read_triangle_mesh("/home/atas/ExportObj.obj")
+sidewalk_mesh = o3d.io.read_triangle_mesh("/home/atas/ExportObj.obj")
 road_mesh.paint_uniform_color([1, 0.706, 0])
 sidewalk_mesh.paint_uniform_color([0, 0.706, 0])
 
@@ -15,6 +15,7 @@ road_pcd.paint_uniform_color([1, 0.706, 0])
 sidewalk_pcd.paint_uniform_color([0, 0.706, 0])
 o3d.visualization.draw_geometries([road_pcd, sidewalk_pcd])
 
+print(road_mesh.get_min_bound())
+print(road_mesh.get_max_bound())
+
 o3d.io.write_point_cloud("/home/atas/copy_of_fragment.pcd", pcd)
-
-
